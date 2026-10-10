@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <meta name="description" content="A quiet gathering of Scripture for those who are grieving, from the World English Bible." />
+  <link rel="icon" href="data:," />
+  <title>For Those Who Mourn</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Source+Sans+3:wght@400;500;600&display=swap');
+
+    :root {
+      color-scheme: light dark;
+      --sky-top: #c9d0d5;
+      --sky-mid: #e5c6bf;
+      --sky-low: #f0d7b7;
+      --paper: rgba(250, 246, 241, 0.86);
+      --ink: #26323a;
+      --ink-soft: #53616a;
+      --accent: #865a59;
+      --glow: #b46e53;
+      --line: rgba(80, 79, 78, 0.19);
+      --star: rgba(255, 250, 238, 0.74);
+      --shadow: rgba(49, 55, 61, 0.12);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --sky-top: #101821;
+        --sky-mid: #28232f;
+        --sky-low: #503139;
+        --paper: rgba(17, 25, 33, 0.83);
+        --ink: #f2e9df;
+        --ink-soft: #c8bbb4;
+        --accent: #e0aba0;
+        --glow: #f0b982;
+        --line: rgba(233, 218, 206, 0.16);
+        --star: rgba(255, 244, 219, 0.82);
+        --shadow: rgba(0, 0, 0, 0.28);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-width: 0;
+      background: var(--sky-top);
+      color: var(--ink);
+      font-family: "Source Sans 3", ui-sans-serif, sans-serif;
+      font-size: 18px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      min-height: 100svh;
+      background:
+        radial-gradient(circle at 16% 8%, var(--star) 0 1px, transparent 1.8px),
+        radial-gradient(circle at 79% 17%, var(--star) 0 1.4px, transparent 2px),
+        radial-gradient(circle at 68% 5%, var(--star) 0 1px, transparent 1.7px),
+        radial-gradient(circle at 90% 29%, var(--star) 0 1px, transparent 1.8px),
+        linear-gradient(164deg, var(--sky-top) 0%, var(--sky-mid) 43%, var(--sky-low) 100%);
+    }
+
+    .page::before,
+    .page::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      border-radius: 50%;
+      filter: blur(1px);
+      opacity: .34;
+      pointer-events: none;
+    }
+
+    .page::before {
+      width: 42rem;
+      height: 42rem;
+      top: 10rem;
+      right: -22rem;
+      background: radial-gradient(circle, color-mix(in srgb, var(--glow) 28%, transparent), transparent 69%);
+    }
+
+    .page::after {
+      width: 30rem;
+      height: 30rem;
+      top: 46rem;
+      left: -19rem;
+      background: radial-gradient(circle, color-mix(in srgb, var(--accent) 20%, transparent), transparent 72%);
+    }
+
+    main {
+      width: min(100% - 32px, 760px);
+      margin: 0 auto;
+      padding: clamp(64px, 11vw, 112px) 0 88px;
+    }
+
+    .opening {
+      text-align: center;
+      padding: 0 clamp(4px, 3vw, 24px) clamp(58px, 10vw, 92px);
+    }
+
+    .opening::before {
+      content: "";
+      display: block;
+      width: 6px;
+      height: 6px;
+      margin: 0 auto 32px;
+      border-radius: 50%;
+      background: var(--glow);
+      box-shadow: 0 0 0 7px color-mix(in srgb, var(--glow) 13%, transparent), 0 0 28px color-mix(in srgb, var(--glow) 45%, transparent);
+    }
+
+    h1,
+    h2,
+    blockquote {
+      font-family: "Lora", Georgia, serif;
+    }
+
+    h1 {
+      max-width: 650px;
+      margin: 0 auto;
+      font-size: clamp(2.8rem, 9vw, 5.3rem);
+      font-weight: 400;
+      line-height: .98;
+      letter-spacing: -0.045em;
+      text-wrap: balance;
+    }
+
+    .intro {
+      max-width: 590px;
+      margin: 28px auto 0;
+      color: var(--ink-soft);
+      font-size: clamp(1.05rem, 2.4vw, 1.24rem);
+      line-height: 1.65;
+      text-wrap: pretty;
+    }
+
+    .scriptures {
+      position: relative;
+      background: var(--paper);
+      border-radius: 46px 46px 18px 18px;
+      box-shadow: 0 24px 80px var(--shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      overflow: hidden;
+    }
+
+    .scriptures::before {
+      content: "";
+      display: block;
+      width: 54px;
+      height: 3px;
+      margin: 23px auto 0;
+      border-radius: 99px;
+      background: var(--line);
+    }
+
+    .passage {
+      padding: clamp(47px, 8vw, 78px) clamp(25px, 8vw, 76px);
+    }
+
+    .passage + .passage { border-top: 1px solid var(--line); }
+    .passage:first-of-type { padding-top: clamp(55px, 9vw, 86px); }
+
+    h2 {
+      margin: 0 0 23px;
+      color: var(--accent);
+      font-size: clamp(1rem, 2vw, 1.16rem);
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: .01em;
+    }
+
+    blockquote {
+      margin: 0;
+      font-size: clamp(1.65rem, 5vw, 2.7rem);
+      font-weight: 400;
+      line-height: 1.42;
+      letter-spacing: -0.025em;
+      text-wrap: pretty;
+    }
+
+    .passage.long blockquote {
+      font-size: clamp(1.42rem, 4vw, 2.15rem);
+      line-height: 1.52;
+    }
+
+    .verse-line {
+      display: block;
+      margin-top: .35em;
+    }
+
+    .verse-line:first-child { margin-top: 0; }
+
+    .verse-num {
+      display: inline-block;
+      margin-right: .42em;
+      color: var(--accent);
+      font-family: "Source Sans 3", ui-sans-serif, sans-serif;
+      font-size: .48em;
+      font-weight: 600;
+      line-height: 1;
+      vertical-align: super;
+    }
+
+    cite {
+      display: block;
+      margin-top: 25px;
+      color: var(--ink-soft);
+      font-style: normal;
+      font-size: .9rem;
+      font-weight: 600;
+      letter-spacing: .045em;
+    }
+
+    .aside {
+      margin: 22px 0 0;
+      color: var(--ink-soft);
+      font-size: 1rem;
+      font-style: italic;
+    }
+
+    .ellipsis {
+      display: block;
+      margin: .5em 0;
+      color: var(--accent);
+      letter-spacing: .24em;
+    }
+
+    .closing {
+      max-width: 630px;
+      margin: 0 auto;
+      padding: clamp(72px, 13vw, 116px) 22px 0;
+      text-align: center;
+    }
+
+    .closing p {
+      margin: 0;
+      font-family: "Lora", Georgia, serif;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      line-height: 1.55;
+      text-wrap: balance;
+    }
+
+    .closing .small {
+      margin-top: 24px;
+      color: var(--ink-soft);
+      font-family: "Source Sans 3", ui-sans-serif, sans-serif;
+      font-size: .92rem;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 520px) {
+      main { width: min(100% - 20px, 760px); padding-top: 54px; }
+      .opening { padding-bottom: 52px; }
+      .scriptures { border-radius: 32px 32px 14px 14px; }
+      .passage { padding-inline: 24px; }
+      blockquote { hyphens: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <main>
+      <header class="opening">
+        <h1>For those who mourn</h1>
+        <p class="intro">If you are missing someone tonight, you do not have to hurry through the sorrow. Scripture makes room for tears—and holds them inside a hope that death does not have the final word.</p>
+      </header>
+
+      <article class="scriptures" aria-label="Scripture for grief and hope">
+        <section class="passage">
+          <h2>Blessed are those who mourn</h2>
+          <blockquote>“Blessed are those who mourn, for they shall be comforted.”</blockquote>
+          <cite>Matthew 5:4</cite>
+        </section>
+
+        <section class="passage">
+          <h2>The Lord is near to the brokenhearted</h2>
+          <blockquote>“Yahweh is near to those who have a broken heart, and saves those who have a crushed spirit.”</blockquote>
+          <cite>Psalm 34:18</cite>
+        </section>
+
+        <section class="passage">
+          <h2>He heals the brokenhearted</h2>
+          <blockquote>“He heals the broken in heart, and binds up their wounds.”</blockquote>
+          <cite>Psalm 147:3</cite>
+        </section>
+
+        <section class="passage long">
+          <h2>We do not grieve as those who have no hope</h2>
+          <blockquote>
+            <span class="verse-line"><span class="verse-num">13</span>“But we don’t want you to be ignorant, brothers, concerning those who have fallen asleep, so that you don’t grieve like the rest, who have no hope.</span>
+            <span class="verse-line"><span class="verse-num">14</span>For if we believe that Jesus died and rose again, even so God will bring with him those who have fallen asleep in Jesus.”</span>
+          </blockquote>
+          <cite>1 Thessalonians 4:13–14</cite>
+        </section>
+
+        <section class="passage long">
+          <h2>No more tears</h2>
+          <blockquote>“He will wipe away from them every tear from their eyes. Death will be no more; neither will there be mourning, nor crying, nor pain, any more. The first things have passed away.”</blockquote>
+          <cite>Revelation 21:4</cite>
+        </section>
+
+        <section class="passage">
+          <h2>Jesus wept too</h2>
+          <blockquote>“Jesus wept.”</blockquote>
+          <cite>John 11:35</cite>
+          <p class="aside">He knows this sorrow.</p>
+        </section>
+
+        <section class="passage long">
+          <h2>A time for everything</h2>
+          <blockquote>
+            <span class="verse-line"><span class="verse-num">1</span>“For everything there is a season, and a time for every purpose under heaven:</span>
+            <span class="ellipsis" aria-hidden="true">…</span>
+            <span class="verse-line"><span class="verse-num">4</span>a time to weep, and a time to laugh; a time to mourn, and a time to dance.”</span>
+          </blockquote>
+          <cite>Ecclesiastes 3:1–4, abridged</cite>
+        </section>
+      </article>
+
+      <footer class="closing">
+        <p>May the God who draws near to broken hearts hold you through this night.</p>
+        <p class="small">Scripture quotations are from the World English Bible, public domain.</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
