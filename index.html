@@ -265,12 +265,36 @@
       blockquote { hyphens: none; }
     }
 
+    .home-pill {
+      position: fixed;
+      top: 14px;
+      left: 14px;
+      z-index: 10;
+      display: inline-block;
+      padding: 7px 15px;
+      border: 1px solid var(--line);
+      border-radius: 99px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Source Sans 3", ui-sans-serif, sans-serif;
+      font-size: .85rem;
+      font-weight: 600;
+      line-height: 1.3;
+      text-decoration: none;
+      box-shadow: 0 4px 18px var(--shadow);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .home-pill:hover { color: var(--accent); }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
     }
   </style>
 </head>
 <body>
+  <a class="home-pill" href="https://jesuslovestyler.com/">⌂ Home</a>
   <div class="page">
     <main>
       <header class="opening">
@@ -336,5 +360,6 @@
       </footer>
     </main>
   </div>
+  <script data-goatcounter="https://jesuslovestyler.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
